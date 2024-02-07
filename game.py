@@ -20,3 +20,5 @@ while True:
             sys.exit()
 
     screen.fill(White)
+    pygame.draw.line(screen,Green,[0,40],[800,40],40)
+    pygame.display.flip()
