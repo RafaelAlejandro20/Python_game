@@ -43,11 +43,11 @@ while True:
     #    speedy += +1
 
     screen.fill(White)
-    for j in coor_list:
-        pygame.draw.circle(screen,Blue,j,2)
-        j[1] += 1
-        if j[1] > 500:
-            j[1] = 0
+    #for j in coor_list:
+    #    pygame.draw.circle(screen,Blue,j,2)
+    #    j[1] += 1
+    #    if j[1] > 500:
+    #        j[1] = 0
     #coordx += speedx
     #coordy += speedy
     #screen.fill(White)
