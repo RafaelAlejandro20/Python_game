@@ -18,11 +18,10 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-
+    screen.fill(White)
     mouse = pygame.mouse.get_pos()
     x = mouse[0]
     y = mouse[1]
-
-    screen.fill(White)
+    pygame.draw.rect(screen,Blue,(x-50,y-50,100,100))
     pygame.display.flip()
     clock.tick(60)
