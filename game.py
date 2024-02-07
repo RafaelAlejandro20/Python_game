@@ -30,14 +30,20 @@ while True:
         speedx += -1
     elif(coordx < 0):
         speedx += +1
+    
+    if (coordy > 420):
+        speedy += -1
+    elif(coordy < 0):
+        speedy += +1
 
     coordx += speedx
+    coordy += speedy
     screen.fill(White)
     #pygame.draw.line(screen,Green,[0,40],[800,40],1)
     #pygame.draw.rect(screen,Black,(0,0,800,40))
     #pygame.draw.circle(screen,Red,(100,100),50)
     #for i in range(0,800,100):
     #    pygame.draw.rect(screen,Black,(i,0,100,100))
-    pygame.draw.rect(screen,Red,(coordx,coordy,80,80))
+    pygame.draw.rect(screen,Red,(coordx,coordy,80,80),0,5)
     pygame.display.flip()
     clock.tick(60)
