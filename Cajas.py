@@ -18,6 +18,9 @@ pygame.mouse.set_visible(0)
 coord_x = 0
 coord_y = 0
 
+speed_x = 0
+speed_y = 0
+
 while True:
     for event in pygame.event.get():
         print(event)
@@ -25,15 +28,25 @@ while True:
             sys.exit()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                coord_x += -10
+                speed_x = -2
             if event.key == pygame.K_RIGHT:
-                coord_x += +10
+                speed_x = 2
+            if event.key == pygame.K_UP:
+                speed_y = -2
+            if event.key == pygame.K_DOWN:
+                speed_y = 2
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
-                
+                speed_x = 0
             if event.key == pygame.K_RIGHT:
-                pass
+                speed_x = 0
+            if event.key == pygame.K_UP:
+                speed_y = 0
+            if event.key == pygame.K_DOWN:
+                speed_y = 0
     screen.fill(White)
+    coord_x += speed_x
+    coord_y += speed_y
     pygame.draw.rect(screen,Blue,(coord_x,coord_y,20,20))
     pygame.display.flip()
     clock.tick(60)
