@@ -20,7 +20,9 @@ while True:
             sys.exit()
 
     mouse = pygame.mouse.get_pos()
-    print(mouse)
+    x = mouse[0]
+    y = mouse[1]
+
     screen.fill(White)
     pygame.display.flip()
     clock.tick(60)
