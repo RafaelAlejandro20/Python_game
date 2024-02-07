@@ -20,10 +20,20 @@ while True:
         print(event)
         if event.type == pygame.QUIT:
             sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                pass
+            if event.key == pygame.K_RIGHT:
+                pass
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT:
+                pass
+            if event.key == pygame.K_RIGHT:
+                pass
     screen.fill(White)
-    mouse = pygame.mouse.get_pos()
-    x = mouse[0]
-    y = mouse[1]
-    pygame.draw.rect(screen,Blue,(x,y,20,20))
+    #mouse = pygame.mouse.get_pos()
+    #x = mouse[0]
+    #y = mouse[1]
+    #pygame.draw.rect(screen,Blue,(x,y,20,20))
     pygame.display.flip()
     clock.tick(60)
