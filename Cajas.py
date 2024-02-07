@@ -16,11 +16,11 @@ clock = pygame.time.Clock()
 
 while True:
     for event in pygame.event.get():
-        print(event)
         if event.type == pygame.QUIT:
             sys.exit()
 
-    
+    mouse = pygame.mouse.get_pos()
+    print(mouse)
     screen.fill(White)
     pygame.display.flip()
     clock.tick(60)
