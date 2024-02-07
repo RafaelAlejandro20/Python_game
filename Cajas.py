@@ -15,6 +15,9 @@ screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 pygame.mouse.set_visible(0)
 
+coord_x = 0
+coord_y = 0
+
 while True:
     for event in pygame.event.get():
         print(event)
@@ -22,18 +25,15 @@ while True:
             sys.exit()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                pass
+                coord_x += -10
             if event.key == pygame.K_RIGHT:
-                pass
+                coord_x += +10
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
-                pass
+                
             if event.key == pygame.K_RIGHT:
                 pass
     screen.fill(White)
-    #mouse = pygame.mouse.get_pos()
-    #x = mouse[0]
-    #y = mouse[1]
-    #pygame.draw.rect(screen,Blue,(x,y,20,20))
+    pygame.draw.rect(screen,Blue,(coord_x,coord_y,20,20))
     pygame.display.flip()
     clock.tick(60)
