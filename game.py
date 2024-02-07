@@ -20,6 +20,12 @@ coordy = 0
 speedx = 1
 speedy = 1
 
+coor_list = []
+for i in range(60):
+    x = random.randint(0,800)
+    y = random.randint(0,500)
+    coor_list.append([x,y])
+
 while True:
     for event in pygame.event.get():
         print(event)
@@ -37,13 +43,14 @@ while True:
     #    speedy += +1
 
     screen.fill(White)
-    for i in range(60):
-        x = random.randint(0,800)
-        y = speedy -1
-        pygame.draw.circle(screen,Blue,(x,y),2)
+    for j in coor_list:
+        pygame.draw.circle(screen,Blue,j,2)
+        j[1] += 1
+        if j[1] > 500:
+            j[1] = 0
     #coordx += speedx
     #coordy += speedy
     #screen.fill(White)
     #pygame.draw.rect(screen,Red,(coordx,coordy,80,80),0,5)
     pygame.display.flip()
-    clock.tick(1)
+    clock.tick(60)
