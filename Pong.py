@@ -68,10 +68,12 @@ while not game_over:
 
     if coord_x1 < 0:
         speed_x1 = 4
-    if coord_x1 > 300:
+    elif coord_x1 > 300:
         speed_x1 = -4
-    if coord_x2 < 0 or coord_x2 > 300:
-        speed_x2 = 0
+    if coord_x2 < 0:
+        speed_x2 = 4
+    elif coord_x2 > 300:
+        speed_x2 = -4
 
     screen.fill(Black)
 
