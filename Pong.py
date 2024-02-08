@@ -85,7 +85,7 @@ while not game_over:
     pelota = screen.blit(img_pelota,[pelota_x,pelota_y])
     jugador1 = pygame.draw.rect(screen,White,(coord_x1,coord_y1,100,20),0,10)
     #jugador2 = pygame.draw.rect(screen,White,(coord_x2,coord_y2,100,20),0,10)
-    jugador2 = pygame.draw.rect(screen,White,(pelota_x-50,coord_y2,100,20),0,10)
+    jugador2 = pygame.draw.rect(screen,White,(pelota_x-40,coord_y2,100,20),0,10)
 
     if pelota.colliderect(jugador1) or pelota.colliderect(jugador2):
         pelota_speed_y *= -1
