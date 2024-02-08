@@ -66,8 +66,10 @@ while not game_over:
         pelota_speed_x *= -1
         pelota_speed_y *= -1
 
-    if coord_x1 < 0 or coord_x1 > 300:
-        speed_x1 = 0
+    if coord_x1 < 0:
+        speed_x1 = 4
+    if coord_x1 > 300:
+        speed_x1 = -4
     if coord_x2 < 0 or coord_x2 > 300:
         speed_x2 = 0
 
