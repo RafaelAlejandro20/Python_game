@@ -24,10 +24,12 @@ speed_x2 = 0
 speed_y2 = 0
 pelota_x = 195
 pelota_y = 300
-pelota_speed_x = 2
-pelota_speed_y = 2
+pelota_speed_x = 3
+pelota_speed_y = 3
 
 background = pygame.image.load("Pista.png").convert()
+img_pelota = pygame.image.load("Pelota.png").convert()
+img_pelota.set_colorkey([0,0,0])
 
 while not game_over:
     for event in pygame.event.get():
@@ -57,7 +59,7 @@ while not game_over:
         pelota_y = 300
         pelota_speed_x *= -1
         pelota_speed_y *= -1
-    if pelota_y < 0:
+    if pelota_y < -20:
         pelota_x = 195
         pelota_y = 300
         pelota_speed_x *= -1
@@ -74,15 +76,16 @@ while not game_over:
 
     screen.blit(background,[0,0])
 
-    if pelota_x > 390 or pelota_x < 10:
+    if pelota_x > 380 or pelota_x < 0:
         pelota_speed_x *= -1
     coord_x1 += speed_x1
     coord_x2 += speed_x2
     pelota_x += pelota_speed_x
     pelota_y += pelota_speed_y
-    pelota = pygame.draw.circle(screen,White,(pelota_x,pelota_y),10)
+    pelota = screen.blit(img_pelota,[pelota_x,pelota_y])
     jugador1 = pygame.draw.rect(screen,White,(coord_x1,coord_y1,100,20),0,10)
-    jugador2 = pygame.draw.rect(screen,White,(coord_x2,coord_y2,100,20),0,10)
+    #jugador2 = pygame.draw.rect(screen,White,(coord_x2,coord_y2,100,20),0,10)
+    jugador2 = pygame.draw.rect(screen,White,(pelota_x-50,coord_y2,100,20),0,10)
 
     if pelota.colliderect(jugador1) or pelota.colliderect(jugador2):
         pelota_speed_y *= -1
