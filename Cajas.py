@@ -28,13 +28,13 @@ while True:
             sys.exit()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                speed_x = -2
+                speed_x = -4
             if event.key == pygame.K_RIGHT:
-                speed_x = 2
+                speed_x = 4
             if event.key == pygame.K_UP:
-                speed_y = -2
+                speed_y = -4
             if event.key == pygame.K_DOWN:
-                speed_y = 2
+                speed_y = 4
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 speed_x = 0
