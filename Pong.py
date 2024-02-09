@@ -12,10 +12,6 @@ pygame.mouse.set_visible(0)
 
 game_over = False
 mensaje = False
-velocidad = False
-
-font = pygame.font.SysFont("Carlito",40)
-text = font.render("GAME OVER",True,White)
 
 coord_x1 = 150
 coord_y1 = 560
@@ -29,6 +25,11 @@ pelota_x = 195
 pelota_y = 300
 pelota_speed_x = 3
 pelota_speed_y = 3
+
+contador = 0
+
+font = pygame.font.SysFont("Carlito",40)
+text = font.render("GAME OVER",True,White)
 
 background = pygame.image.load("Pista.png").convert()
 img_pelota = pygame.image.load("Pelota.png").convert()
@@ -104,6 +105,10 @@ while not game_over:
     if pelota.colliderect(jugador1) or pelota.colliderect(jugador2):
         pelota_speed_y *= -1
         ping_pong.play()
+        contador = contador + 1
+
+    cont = font.render("{}".format(contador),True,White)
+    screen.blit(cont,[190,420])
 
     pygame.display.flip()
     clock.tick(60)
