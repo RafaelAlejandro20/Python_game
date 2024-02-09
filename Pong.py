@@ -30,7 +30,8 @@ pelota_speed_y = 3
 background = pygame.image.load("Pista.png").convert()
 img_pelota = pygame.image.load("Pelota.png").convert()
 img_pelota.set_colorkey([0,0,0])
-sound = pygame.mixer.Sound("")
+sound = pygame.mixer.Sound("game_over.ogg")
+ping_pong = pygame.mixer.Sound("ping_pong.ogg")
 
 while not game_over:
     for event in pygame.event.get():
@@ -56,15 +57,28 @@ while not game_over:
                 speed_x2 = 0
 
     if pelota_y > 600:
-        pelota_x = 195
-        pelota_y = 300
-        pelota_speed_x *= -1
-        pelota_speed_y *= -1
+        #pelota_x = 195
+        #pelota_y = 300
+        #pelota_speed_x *= -1
+        #pelota_speed_y *= -1
+        sound.play()
+        coord_x1 = 150
+        coord_x2 = 150
+        pelota_x = 190
+        pelota_y = 290
+        pelota_speed_x = 0
+        pelota_speed_y = 0
+        speed_x1 = 0
+        speed_x2 = 0
+
+
     if pelota_y < -20:
-        pelota_x = 195
-        pelota_y = 300
-        pelota_speed_x *= -1
-        pelota_speed_y *= -1
+        #pelota_x = 195
+        #pelota_y = 300
+        #pelota_speed_x *= -1
+        #pelota_speed_y *= -1
+        #sound.play()
+        pass
 
     if coord_x1 < 0:
         speed_x1 = 4
@@ -79,7 +93,7 @@ while not game_over:
 
     if pelota_x > 380 or pelota_x < 0:
         pelota_speed_x *= -1
-        sound.play()
+    
     coord_x1 += speed_x1
     coord_x2 += speed_x2
     pelota_x += pelota_speed_x
@@ -91,6 +105,7 @@ while not game_over:
 
     if pelota.colliderect(jugador1) or pelota.colliderect(jugador2):
         pelota_speed_y *= -1
+        ping_pong.play()
 
     pygame.display.flip()
     clock.tick(60)
