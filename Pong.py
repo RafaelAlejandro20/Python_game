@@ -59,9 +59,19 @@ while not game_over:
                 speed_x2 = 0
             if event.key == pygame.K_d:
                 speed_x2 = 0
+            if event.key == pygame.K_r:
+                mensaje = False
+                pelota_speed_x = 3
+                pelota_speed_y = 3
 
     if pelota_y > 600:
         sound.play()
+        coord_x1 = 150
+        coord_x2 = 150
+        pelota_x = 190
+        pelota_y = 290
+        pelota_speed_x = 0
+        pelota_speed_y = 0
         mensaje = True
 
     if pelota_y < -20:
@@ -78,12 +88,6 @@ while not game_over:
 
     screen.blit(background,[0,0])
     if mensaje == True:
-        coord_x1 = 150
-        coord_x2 = 150
-        pelota_x = 190
-        pelota_y = 290
-        pelota_speed_x = 0
-        pelota_speed_y = 0
         screen.blit(text,[100,150])
 
     coord_x1 += speed_x1
