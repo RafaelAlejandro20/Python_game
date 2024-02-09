@@ -12,6 +12,10 @@ pygame.mouse.set_visible(0)
 
 game_over = False
 mensaje = False
+velocidad = False
+
+font = pygame.font.SysFont("Carlito",40)
+text = font.render("GAME OVER",True,White)
 
 coord_x1 = 150
 coord_y1 = 560
@@ -29,6 +33,7 @@ pelota_speed_y = 3
 background = pygame.image.load("Pista.png").convert()
 img_pelota = pygame.image.load("Pelota.png").convert()
 img_pelota.set_colorkey([0,0,0])
+
 sound = pygame.mixer.Sound("game_over.ogg")
 ping_pong = pygame.mixer.Sound("ping_pong.ogg")
 
@@ -54,8 +59,6 @@ while not game_over:
                 speed_x2 = 0
             if event.key == pygame.K_d:
                 speed_x2 = 0
-            if event.key == pygame.K_r:
-                mensaje = False
 
     if pelota_y > 600:
         sound.play()
@@ -81,17 +84,13 @@ while not game_over:
         pelota_y = 290
         pelota_speed_x = 0
         pelota_speed_y = 0
-        speed_x1 = 0
-        speed_x2 = 0
-        font = pygame.font.SysFont("Carlito",40)
-        text = font.render("GAME OVER",True,White)
         screen.blit(text,[100,150])
-    elif mensaje == False:
-        coord_x1 += speed_x1
-        coord_x2 += speed_x2
-        pelota_x += pelota_speed_x
-        pelota_y += pelota_speed_y
-        pelota = screen.blit(img_pelota,[pelota_x,pelota_y])
+
+    coord_x1 += speed_x1
+    coord_x2 += speed_x2
+    pelota_x += pelota_speed_x
+    pelota_y += pelota_speed_y
+    pelota = screen.blit(img_pelota,[pelota_x,pelota_y])
 
     if pelota_x > 380 or pelota_x < 0:
         pelota_speed_x *= -1
