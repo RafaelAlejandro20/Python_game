@@ -64,7 +64,7 @@ while not game_over:
                 pelota_speed_x = 3
                 pelota_speed_y = 3
 
-    if pelota_y > 600:
+    if pelota_y > 600 or pelota_y < -20:
         sound.play()
         coord_x1 = 150
         coord_x2 = 150
@@ -73,9 +73,6 @@ while not game_over:
         pelota_speed_x = 0
         pelota_speed_y = 0
         mensaje = True
-
-    if pelota_y < -20:
-        pass
 
     if coord_x1 < 0:
         speed_x1 = 4
@@ -88,6 +85,8 @@ while not game_over:
 
     screen.blit(background,[0,0])
     if mensaje == True:
+        speed_x1 = 0
+        speed_x2 = 0
         screen.blit(text,[100,150])
 
     coord_x1 += speed_x1
@@ -100,7 +99,7 @@ while not game_over:
         pelota_speed_x *= -1
 
     jugador1 = pygame.draw.rect(screen,White,(coord_x1,coord_y1,100,20),0,10)
-    jugador2 = pygame.draw.rect(screen,White,(pelota_x-40,coord_y2,100,20),0,10)
+    jugador2 = pygame.draw.rect(screen,White,(coord_x2,coord_y2,100,20),0,10)
 
     if pelota.colliderect(jugador1) or pelota.colliderect(jugador2):
         pelota_speed_y *= -1
