@@ -1,11 +1,8 @@
 import pygame, sys, random
 pygame.init()
 
-Black   =   (0,0,0)
-White   =   (255,255,255)
-Red     =   (255,0,0)
-Green   =   (0,255,0)
-Blue    =   (0,0,255)
+Black = (0,0,0)
+White = (255,255,255)
 
 size = (400,600)
 
@@ -57,6 +54,8 @@ while not game_over:
                 speed_x2 = 0
             if event.key == pygame.K_d:
                 speed_x2 = 0
+            if event.key == pygame.K_r:
+                mensaje = False
 
     if pelota_y > 600:
         sound.play()
@@ -87,15 +86,16 @@ while not game_over:
         font = pygame.font.SysFont("Carlito",40)
         text = font.render("GAME OVER",True,White)
         screen.blit(text,[100,150])
+    elif mensaje == False:
+        coord_x1 += speed_x1
+        coord_x2 += speed_x2
+        pelota_x += pelota_speed_x
+        pelota_y += pelota_speed_y
+        pelota = screen.blit(img_pelota,[pelota_x,pelota_y])
 
     if pelota_x > 380 or pelota_x < 0:
         pelota_speed_x *= -1
-    
-    coord_x1 += speed_x1
-    coord_x2 += speed_x2
-    pelota_x += pelota_speed_x
-    pelota_y += pelota_speed_y
-    pelota = screen.blit(img_pelota,[pelota_x,pelota_y])
+
     jugador1 = pygame.draw.rect(screen,White,(coord_x1,coord_y1,100,20),0,10)
     jugador2 = pygame.draw.rect(screen,White,(pelota_x-40,coord_y2,100,20),0,10)
 
