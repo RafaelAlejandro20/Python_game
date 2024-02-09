@@ -23,8 +23,8 @@ speed_x2 = 0
 speed_y2 = 0
 pelota_x = 195
 pelota_y = 300
-pelota_speed_x = 3
-pelota_speed_y = 3
+pelota_speed_x = 4
+pelota_speed_y = 4
 
 contador = 0
 
@@ -112,4 +112,4 @@ while not game_over:
 
     pygame.display.flip()
     clock.tick(60)
-pygame.QUIT()
+#pygame.QUIT()
