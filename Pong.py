@@ -1,39 +1,27 @@
 import pygame, sys, random
 pygame.init()
 
-class Obstaculo(pygame.sprite.Sprite):
-    def __init__(self):
-        self.image = pygame.image.load("Pelota.png").convert()
-        self.image.set_colorkey(Black)
-        self.rect = self.image.get_rect()
-
-#Colores
 Black   =   (0,0,0)
 White   =   (255,255,255)
 Red     =   (255,0,0)
 Green   =   (0,255,0)
 Blue    =   (0,0,255)
 
-#Tamanio de pantalla
 size = (400,600)
 
-#Pantalla
 screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 pygame.mouse.set_visible(0)
 
 game_over = False
-#Jugador 1
 coord_x1 = 150
 coord_y1 = 560
 speed_x1 = 0
 speed_y1 = 0
-#Jugador 2
 coord_x2 = 150
 coord_y2 = 20
 speed_x2 = 0
 speed_y2 = 0
-#Pelota
 pelota_x = 195
 pelota_y = 300
 pelota_speed_x = 3
@@ -43,16 +31,6 @@ background = pygame.image.load("Pista.png").convert()
 img_pelota = pygame.image.load("Pelota.png").convert()
 img_pelota.set_colorkey([0,0,0])
 
-lista_obstaculos = pygame.sprite.Group()
-all_obstaculos = pygame.sprite.Group()
-
-for i in range(50):
-    f_obstaculo = Obstaculo()
-    f_obstaculo.rect.x = random.randrange(400)
-    f_obstaculo.rect.y = random.randrange(600)
-    lista_obstaculos.add(f_obstaculo)
-    all_obstaculos.add(f_obstaculo)
-    
 while not game_over:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -97,7 +75,6 @@ while not game_over:
         speed_x2 = -4
 
     screen.blit(background,[0,0])
-    all_obstaculos.draw(screen)
 
     if pelota_x > 380 or pelota_x < 0:
         pelota_speed_x *= -1
