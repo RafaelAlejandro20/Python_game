@@ -30,6 +30,7 @@ pelota_speed_y = 3
 background = pygame.image.load("Pista.png").convert()
 img_pelota = pygame.image.load("Pelota.png").convert()
 img_pelota.set_colorkey([0,0,0])
+sound = pygame.mixer.Sound("")
 
 while not game_over:
     for event in pygame.event.get():
@@ -78,6 +79,7 @@ while not game_over:
 
     if pelota_x > 380 or pelota_x < 0:
         pelota_speed_x *= -1
+        sound.play()
     coord_x1 += speed_x1
     coord_x2 += speed_x2
     pelota_x += pelota_speed_x
