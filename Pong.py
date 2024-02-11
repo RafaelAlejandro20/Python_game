@@ -42,6 +42,7 @@ img_pelota.set_colorkey([0,0,0])
 sound = pygame.mixer.Sound("game_over.ogg")
 ping_pong = pygame.mixer.Sound("ping_pong.ogg")
 
+#procesos
 while not game_over:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
