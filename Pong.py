@@ -13,6 +13,7 @@ screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 pygame.mouse.set_visible(0)
 
+#comprobadores
 game_over = False
 mensaje = False
 
