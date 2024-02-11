@@ -13,6 +13,7 @@ pygame.mouse.set_visible(0)
 game_over = False
 mensaje = False
 
+#variables
 coord_x1 = 150
 coord_y1 = 560
 speed_x1 = 0
