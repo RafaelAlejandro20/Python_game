@@ -43,6 +43,7 @@ background = pygame.image.load("Pista.png").convert()
 img_pelota = pygame.image.load("Pelota.png").convert()
 img_pelota.set_colorkey([0,0,0])
 
+#sonidos
 sound = pygame.mixer.Sound("game_over.ogg")
 ping_pong = pygame.mixer.Sound("ping_pong.ogg")
 
