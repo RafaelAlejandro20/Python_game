@@ -33,10 +33,11 @@ pelota_speed_y = 3
 #contador
 contador = 0
 
-#imagenes
+#tipografia
 font = pygame.font.SysFont("Carlito",40)
 text = font.render("GAME OVER",True,White)
 
+#imagenes
 background = pygame.image.load("Pista.png").convert()
 img_pelota = pygame.image.load("Pelota.png").convert()
 img_pelota.set_colorkey([0,0,0])
