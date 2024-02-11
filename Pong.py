@@ -28,6 +28,7 @@ pelota_y = 300
 pelota_speed_x = 3
 pelota_speed_y = 3
 
+#contador
 contador = 0
 
 font = pygame.font.SysFont("Carlito",40)
