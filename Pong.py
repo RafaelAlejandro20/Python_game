@@ -4,6 +4,7 @@ pygame.init()
 Black = (0,0,0)
 White = (255,255,255)
 
+#tamano de pantalla
 size = (400,600)
 
 screen = pygame.display.set_mode(size)
