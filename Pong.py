@@ -100,7 +100,7 @@ while not game_over:
         speed_x1 = 0
         speed_x2 = 0
         screen.blit(text,[100,150])
-
+#determinar la velocidad 
     coord_x1 += speed_x1
     coord_x2 += speed_x2
 
