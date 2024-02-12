@@ -18,6 +18,7 @@ game_over = False
 mensaje = False
 
 #variables
+#1 jugador
 coord_x1 = 150
 coord_y1 = 560
 speed_x1 = 0
