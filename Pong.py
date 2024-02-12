@@ -98,6 +98,7 @@ while not game_over:
     elif coord_x2 > 300:
         speed_x2 = -4
 
+#fondo de ventana
     screen.blit(background,[0,0])
     if mensaje == True:
         speed_x1 = 0
