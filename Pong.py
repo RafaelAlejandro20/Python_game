@@ -28,6 +28,7 @@ coord_x2 = 150
 coord_y2 = 20
 speed_x2 = 0
 speed_y2 = 0
+#pelota
 pelota_x = 195
 pelota_y = 300
 pelota_speed_x = 3
