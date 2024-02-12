@@ -127,5 +127,6 @@ while not game_over:
     screen.blit(cont,[190,420])
 
     pygame.display.flip()
+#Velocidad de las actualizaciones de imagen
     clock.tick(60)
 #pygame.QUIT()
