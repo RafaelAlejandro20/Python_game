@@ -1,26 +1,38 @@
+#librerias
 import pygame, sys, random
 pygame.init()
 
+#colores
+#color negro
 Black = (0,0,0)
+#color blanco
 White = (255,255,255)
 
+#tamano de pantalla
 size = (400,600)
 
+#Hacemos la pantalla
 screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
+#ocultar mouse
 pygame.mouse.set_visible(0)
 
+#comprobadores
 game_over = False
 mensaje = False
 
+#variables
+#1 jugador
 coord_x1 = 150
 coord_y1 = 560
 speed_x1 = 0
 speed_y1 = 0
+#2 jugador
 coord_x2 = 150
 coord_y2 = 30
 speed_x2 = 0
 speed_y2 = 0
+#pelota
 pelota_x = 195
 pelota_y = 300
 pelota_speed_x = 3
@@ -28,18 +40,23 @@ pelota_speed_y = 3
 velocidad = 4
 muertes = 3
 
+#contador
 contador = 0
 
+#tipografia
 font = pygame.font.SysFont("Carlito",40)
 text = font.render("GAME OVER",True,White)
 
+#imagenes
 background = pygame.image.load("Pista.png").convert()
 img_pelota = pygame.image.load("Pelota.png").convert()
 img_pelota.set_colorkey([0,0,0])
 
+#sonidos
 sound = pygame.mixer.Sound("game_over.ogg")
 ping_pong = pygame.mixer.Sound("ping_pong.ogg")
 
+#procesos
 while not game_over:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -89,12 +106,13 @@ while not game_over:
     elif coord_x2 > 300:
         speed_x2 = -velocidad
 
+#fondo de ventana
     screen.blit(background,[0,0])
     if mensaje == True:
         speed_x1 = 0
         speed_x2 = 0
         screen.blit(text,[100,150])
-
+#determinar la velocidad 
     coord_x1 += speed_x1
     coord_x2 += speed_x2
 
@@ -117,6 +135,8 @@ while not game_over:
     cont = font.render("{}".format(contador),True,White)
     screen.blit(cont,[190,420])
 
+#actualizacion de imágenes
     pygame.display.flip()
+#Velocidad de las actualizaciones de imagen
     clock.tick(60)
 #pygame.QUIT()
