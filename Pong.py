@@ -126,6 +126,7 @@ while not game_over:
     cont = font.render("{}".format(contador),True,White)
     screen.blit(cont,[190,420])
 
+#actualizacion de imágenes
     pygame.display.flip()
 #Velocidad de las actualizaciones de imagen
     clock.tick(60)
