@@ -23,6 +23,7 @@ coord_x1 = 150
 coord_y1 = 560
 speed_x1 = 0
 speed_y1 = 0
+#2 jugador
 coord_x2 = 150
 coord_y2 = 20
 speed_x2 = 0
