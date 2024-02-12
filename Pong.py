@@ -11,6 +11,7 @@ White = (255,255,255)
 #tamano de pantalla
 size = (400,600)
 
+Hacemos la pantalla
 screen = pygame.display.set_mode(size)
 clock = pygame.time.Clock()
 pygame.mouse.set_visible(0)
