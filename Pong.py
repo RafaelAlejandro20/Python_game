@@ -3,7 +3,9 @@ import pygame, sys, random
 pygame.init()
 
 #colores
+#color negro
 Black = (0,0,0)
+#color blanco
 White = (255,255,255)
 
 #tamano de pantalla
