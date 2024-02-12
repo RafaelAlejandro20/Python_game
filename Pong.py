@@ -18,13 +18,15 @@ coord_y1 = 560
 speed_x1 = 0
 speed_y1 = 0
 coord_x2 = 150
-coord_y2 = 20
+coord_y2 = 30
 speed_x2 = 0
 speed_y2 = 0
 pelota_x = 195
 pelota_y = 300
 pelota_speed_x = 3
 pelota_speed_y = 3
+velocidad = 4
+muertes = 3
 
 contador = 0
 
@@ -44,13 +46,13 @@ while not game_over:
             game_over = True
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                speed_x1 = -4
+                speed_x1 = -velocidad
             if event.key == pygame.K_RIGHT:
-                speed_x1 = 4
+                speed_x1 = velocidad
             if event.key == pygame.K_a:
-                speed_x2 = -4
+                speed_x2 = -velocidad
             if event.key == pygame.K_d:
-                speed_x2 = 4
+                speed_x2 = velocidad
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT:
                 speed_x1 = 0
@@ -62,9 +64,10 @@ while not game_over:
                 speed_x2 = 0
             if event.key == pygame.K_r:
                 mensaje = False
-                pelota_speed_x = 3
-                pelota_speed_y = 3
+                pelota_speed_x = muertes
+                pelota_speed_y = muertes
                 contador = 0
+                velocidad += 1
 
     if pelota_y > 600 or pelota_y < -20:
         sound.play()
@@ -75,15 +78,16 @@ while not game_over:
         pelota_speed_x = 0
         pelota_speed_y = 0
         mensaje = True
+        muertes += 1
 
     if coord_x1 < 0:
-        speed_x1 = 4
+        speed_x1 = velocidad
     elif coord_x1 > 300:
-        speed_x1 = -4
+        speed_x1 = -velocidad
     if coord_x2 < 0:
-        speed_x2 = 4
+        speed_x2 = velocidad
     elif coord_x2 > 300:
-        speed_x2 = -4
+        speed_x2 = -velocidad
 
     screen.blit(background,[0,0])
     if mensaje == True:
@@ -102,8 +106,8 @@ while not game_over:
     if pelota_x > 380 or pelota_x < 0:
         pelota_speed_x *= -1
 
-    jugador1 = pygame.draw.rect(screen,White,(coord_x1,coord_y1,100,20),0,10)
-    jugador2 = pygame.draw.rect(screen,White,(pelota_x-40,coord_y2,100,20),0,10)
+    jugador1 = pygame.draw.rect(screen,White,(coord_x1,coord_y1,100,10),0,10)
+    jugador2 = pygame.draw.rect(screen,White,(pelota_x-40,coord_y2,100,10),0,10)
 
     if pelota.colliderect(jugador1) or pelota.colliderect(jugador2):
         pelota_speed_y *= -1
